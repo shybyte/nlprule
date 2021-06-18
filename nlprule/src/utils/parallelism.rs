@@ -24,13 +24,14 @@ pub fn _has_parallelism_been_used() -> bool {
 
 /// Get the currently set value for `NLPRULE_PARALLELISM` env variable
 pub fn get_parallelism() -> bool {
-    match std::env::var(ENV_VARIABLE) {
-        Ok(mut v) => {
-            v.make_ascii_lowercase();
-            !matches!(v.as_ref(), "" | "off" | "false" | "f" | "no" | "n" | "0")
-        }
-        Err(_) => true, // If we couldn't get the variable, we use the default
-    }
+    // match std::env::var(ENV_VARIABLE) {
+    //     Ok(mut v) => {
+    //         v.make_ascii_lowercase();
+    //         !matches!(v.as_ref(), "" | "off" | "false" | "f" | "no" | "n" | "0")
+    //     }
+    //     Err(_) => true, // If we couldn't get the variable, we use the default
+    // }
+    false
 }
 
 /// Set the value for `NLPRULE_PARALLELISM` for the current process
